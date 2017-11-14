@@ -1,0 +1,454 @@
+/* MAIN.C file
+ * 
+ * Copyright (c) 2002-2005 STMicroelectronics
+ */
+ 
+#include "platform.h"
+
+#include "stm8s_it.h"
+#include "protocol.h"
+#include "stm8s_tim4.h"
+#include "stm8s_spi.h"
+#include "stm8s_iwdg.h"
+#include "stm8s_beep.h"
+#if DEBUG_UART
+#include <stdio.h>
+#endif
+//#include <string.h>
+
+extern unsigned long  u64TickMs;
+//unsigned long GetTickCountMs()
+//{
+//	return u64TickMs;
+//}
+void mdec(void);
+//void SPI_SLAVE_Init(void);
+
+
+
+#if ENABLE_PWM
+void init_pwm(void);
+#endif 
+
+void init_uart(u32 baud);
+void delay(unsigned int d)
+{
+	while(d){
+		d--;
+	}
+}
+#if 0
+void send_string(char* pbuf)
+{
+	char* p=pbuf;
+	while(*p)
+	{
+		UART1_SendData8(*p++);
+		while(!UART1_GetFlagStatus(UART1_FLAG_TXE));
+		UART1_ClearFlag(UART1_FLAG_TXE);
+	}
+}
+#endif
+
+#if 0
+/*Command definition*/
+#define WREN    0x06
+#define WRDI    0x04
+#define READ    0x03
+#define WRITE   0x02
+u8 DataBuffer[133];
+u8 Index;
+u8 NbDataInBuffer;
+u8 Command;
+volatile bool Write_allowed;
+unsigned char u8TpmsBuf[MAX_UART_RCV_BUF];
+
+#endif
+unsigned char u8RcvBuf[MAX_UART_RCV_BUF];
+
+
+
+unsigned char g_uart_rcv_len=0;
+unsigned char u8RcvBufOffset = 0;
+unsigned char u8RcvBitOffset = 0;
+unsigned long g_u8LastRecvTickMs=0;
+unsigned long g_u64CurrentTickMs;
+int i,sample_cnt;
+unsigned char input_bit1,input_bit2;
+unsigned char checksum;
+unsigned char dat_changed = 0;
+unsigned char is_rcv_new_data = 0;
+//unsigned char buf[MAX_UART_RCV_BUF];
+int main()
+{
+	 _asm("rim"); //这是必须的，因为系统重启后，软件中断级别为3级，处于最高级，除了TRAP,TLI,RESET三个中断外不响应其他中断。
+	//IWDG_SetPrescaler(IWDG_Prescaler_256);
+//	IWDG_SetReload(128);
+	CLK->SWCR |= 0x02; //开启切换
+  CLK->SWR   = 0xb4;		//选择时钟为外部12M
+  while((CLK->SWCR & 0x01)==0x01);
+  CLK->CKDIVR = 0x80;	//不分频
+  CLK->SWCR  &= ~0x02; //关闭切换
+	
+	input_bit1 = 0;
+	input_bit2 = 0;
+	for(i=0;i<MAX_UART_RCV_BUF;i++)
+	{
+		u8RcvBuf[i] = 0;
+	}
+	i = 0;
+	sample_cnt= 0;
+	init_uart(115200);
+	putstr("dh_uart init end\n");
+	#if 0
+	printf("short:%d\r\n",sizeof(short));
+	printf("int:%d\r\n",sizeof(int));
+	printf("long:%d\r\n",sizeof(long));
+	printf("float:%d\r\n",sizeof(float));
+	printf("double:%d\r\n",sizeof(double));
+	#endif
+	
+	#if ENABLE_PWM
+	init_pwm();
+	#endif
+	
+	//GPIO_Init(GPIOD,GPIO_PIN_3,GPIO_MODE_OUT_PP_LOW_FAST);
+	#if ENABLE_IO
+	GPIO_Init(GPIOA,GPIO_PIN_3,GPIO_MODE_OUT_PP_LOW_FAST);
+	GPIO_Init(GPIOC,GPIO_PIN_3,GPIO_MODE_OUT_PP_LOW_FAST);
+	GPIO_Init(GPIOC,GPIO_PIN_4,GPIO_MODE_OUT_PP_LOW_FAST);
+	GPIO_Init(GPIOC,GPIO_PIN_5,GPIO_MODE_OUT_PP_LOW_FAST);
+	GPIO_Init(GPIOC,GPIO_PIN_6,GPIO_MODE_OUT_PP_LOW_FAST);
+	GPIO_Init(GPIOC,GPIO_PIN_7,GPIO_MODE_OUT_PP_LOW_FAST);
+	GPIO_Init(GPIOD,GPIO_PIN_2,GPIO_MODE_OUT_PP_LOW_FAST);
+	GPIO_Init(GPIOD,GPIO_PIN_3,GPIO_MODE_OUT_PP_LOW_FAST);
+	
+	GPIO_Init(GPIOB,GPIO_PIN_4,GPIO_MODE_IN_FL_NO_IT);
+	GPIO_Init(GPIOB,GPIO_PIN_5,GPIO_MODE_OUT_PP_HIGH_FAST);
+	#endif
+	
+	//GPIO_Init(GPIOC, GPIO_PIN_6, GPIO_MODE_IN_FL_NO_IT);
+	//GPIO_Init(GPIOC, GPIO_PIN_7, GPIO_MODE_OUT_PP_HIGH_FAST);
+	//SPI_SLAVE_Init();
+	
+	#if 1	// systick
+	CLK_PeripheralClockConfig(CLK_PERIPHERAL_TIMER4, ENABLE);
+	// 4M/125=32000tick/s  ,32000/256level=125Hz
+	TIM4_DeInit();
+	TIM4_TimeBaseInit(TIM4_PRESCALER_4,249);
+	TIM4_ITConfig(TIM4_IT_UPDATE,ENABLE);
+//	TIM4_UpdateRequestConfig(TIM4_UPDATESOURCE_REGULAR);
+	TIM4_GenerateEvent(TIM4_EVENTSOURCE_UPDATE);
+//	TIM4_SetCounter(249);////设置计数器值
+//TIM4_SetAutoreload(255);
+	TIM4_Cmd(ENABLE);
+	#endif
+	#if 0
+									
+	GPIO_WriteLow(GPIOC,GPIO_PIN_3);
+	GPIO_WriteLow(GPIOC,GPIO_PIN_4);
+	GPIO_WriteLow(GPIOC,GPIO_PIN_5);
+	GPIO_WriteLow(GPIOC,GPIO_PIN_6);
+	GPIO_WriteLow(GPIOC,GPIO_PIN_7);
+	GPIO_WriteLow(GPIOD,GPIO_PIN_2);
+	GPIO_WriteLow(GPIOD,GPIO_PIN_3);
+	GPIO_WriteLow(GPIOA,GPIO_PIN_3);
+	#else
+	GPIO_WriteHigh(GPIOC,GPIO_PIN_3);
+	GPIO_WriteHigh(GPIOC,GPIO_PIN_4);
+	GPIO_WriteHigh(GPIOC,GPIO_PIN_5);
+	GPIO_WriteHigh(GPIOC,GPIO_PIN_6);
+	GPIO_WriteHigh(GPIOC,GPIO_PIN_7);
+	GPIO_WriteHigh(GPIOD,GPIO_PIN_2);
+	GPIO_WriteHigh(GPIOD,GPIO_PIN_3);
+	GPIO_WriteHigh(GPIOA,GPIO_PIN_3);
+	#endif
+	GPIO_WriteHigh(GPIOB,GPIO_PIN_5);
+
+//  IWDG_Enable();
+	BEEP_Init(BEEP_FREQUENCY_2KHZ);
+	//BEEP_Cmd(ENABLE);
+	//input_bit1 = GPIO_ReadInputPin(GPIOD,GPIO_PIN_6);
+	u8RcvBitOffset = 8;
+	
+	
+	GPIO_WriteLow(GPIOB,GPIO_PIN_5);
+	while (1)
+	{
+	
+	//	GPIO_WriteLow(GPIOD,GPIO_PIN_3);
+//	GPIO_WriteHigh(GPIOC,GPIO_PIN_3);
+//	GPIO_WriteLow(GPIOC,GPIO_PIN_3);
+	//IWDG_ReloadCounter();
+//	printf("%d ",i++);
+	#if 1
+	//printf("%llu%\n",g_u64CurrentTickMs);
+		if(u8RcvBufOffset)
+		{
+			//printf("%d\n",g_u64CurrentTickMs);
+			if(g_u64CurrentTickMs != u64TickMs)//GetTickCountMs())
+			{
+				g_u64CurrentTickMs=u64TickMs;
+				g_u8LastRecvTickMs ++;
+				 
+				if(g_u8LastRecvTickMs>50)
+				{
+					g_u8LastRecvTickMs = 0;
+				#if DEBUG_UART
+					printf("rcv:%u\n",(unsigned int)u8RcvBufOffset);
+				#endif
+					g_uart_rcv_len = u8RcvBufOffset;
+					u8RcvBufOffset = 0;					
+					handle_rcv_data(u8RcvBuf, g_uart_rcv_len);
+				}
+			} 
+		}
+		#endif
+	}
+	return 0;
+}
+
+#if ENABLE_PWM
+void init_pwm(void)
+{
+	#if ENABLE_PWM2
+	CLK_PeripheralClockConfig(CLK_PERIPHERAL_TIMER2, ENABLE);
+
+	
+	// 2M/10000 = 200Hz
+	TIM2_SetAutoreload(5000);
+	
+	TIM2_OC2Init(TIM2_OCMODE_PWM2, // 比较输出
+                  TIM2_OUTPUTSTATE_ENABLE,
+                  0xFF,
+                  TIM2_OCPOLARITY_LOW);//HIGH);
+	TIM2_PrescalerConfig(TIM2_PRESCALER_1,TIM2_PSCRELOADMODE_UPDATE);
+	TIM2_GenerateEvent(TIM2_EVENTSOURCE_UPDATE);
+	TIM2_Cmd(ENABLE);		
+	
+	#endif
+	
+	#if ENABLE_PWM1
+	CLK_PeripheralClockConfig(CLK_PERIPHERAL_TIMER1, ENABLE);
+	TIM1_SetAutoreload(5000);
+	TIM1_OC3Init(TIM1_OCMODE_PWM2, // 比较输出
+                  TIM1_OUTPUTSTATE_ENABLE,
+									TIM1_OUTPUTNSTATE_ENABLE,
+                  0xFF,
+                  TIM1_OCPOLARITY_LOW,
+									TIM1_OCNPOLARITY_LOW,
+									TIM1_OCIDLESTATE_RESET,
+									TIM1_OCNIDLESTATE_RESET);//HIGH);
+	TIM1_PrescalerConfig(TIM2_PRESCALER_1,TIM1_PSCRELOADMODE_UPDATE);
+	TIM1_GenerateEvent(TIM1_EVENTSOURCE_UPDATE);
+	TIM1_CtrlPWMOutputs(ENABLE);
+	TIM1_Cmd(ENABLE);	
+	#endif
+}
+#endif
+
+void init_uart(u32 baud)
+{
+	#if ENABLE_UART
+	UART1_DeInit();
+	GPIO_Init(GPIOD, GPIO_PIN_5, GPIO_MODE_OUT_OD_LOW_FAST);      //USART2_TX-PD5
+	GPIO_Init(GPIOD, GPIO_PIN_6, GPIO_MODE_IN_PU_NO_IT);        //USART2_RX-PD6       
+	
+	CLK_PeripheralClockConfig(CLK_PERIPHERAL_UART1, ENABLE);
+	UART1_Init(baud, UART1_WORDLENGTH_8D, UART1_STOPBITS_1, UART1_PARITY_NO, UART1_SYNCMODE_CLOCK_DISABLE, UART1_MODE_TXRX_ENABLE);
+	UART1_ITConfig(UART1_IT_RXNE_OR, ENABLE);
+	UART1_Cmd(ENABLE);
+	
+	//enableInterrupts();
+	#endif
+}
+
+#ifdef __GNUC__ 
+/*
+	#ifdef _RAISONANCE_
+		#define PUTCHAR_PROTOTYPE int putchar (char c)
+		#define GETCHAR_PROTOTYPE int getchar (void)
+	#elif defined (_COSMIC_)*/
+		#define PUTCHAR_PROTOTYPE char putchar (char c)
+	//	#define GETCHAR_PROTOTYPE char getchar (void)
+/*	#else 
+		#define PUTCHAR_PROTOTYPE int putchar (int c)
+		#define GETCHAR_PROTOTYPE int getchar (void)*/
+#endif /* _RAISONANCE_ */
+
+//PUTCHAR_PROTOTYPE 
+char putchar (char c)
+{ 
+//	return 0;
+//发送数据代码
+#if ENABLE_UART
+	UART1_SendData8(c);
+	while(!UART1_GetFlagStatus(UART1_FLAG_TXE));
+	UART1_ClearFlag(UART1_FLAG_TXE);
+#endif
+	return c; 
+} 
+
+#if 0
+#define DEC_STATUS_IDLE		0
+#define DEC_STATUS_START	1
+#define DEC_STATUS_RCV		2
+#define DEC_STATUS_STOP		3
+//#define DEC_STATUS_IDLE	0
+//#define DEC_STATUS_IDLE	0
+unsigned char dec_status = DEC_STATUS_IDLE;
+unsigned char wakeup_tone_cnt = 0;
+//unsigned char raw_buf[150];
+unsigned int sample_time = 0;
+
+//unsigned int  raw_offset=0;
+void mdec(void)
+{
+	//return;
+	sample_cnt++;
+	input_bit2 = GPIO_ReadInputPin(GPIOD,GPIO_PIN_6);
+
+	if(DEC_STATUS_IDLE==dec_status)
+	{
+		if(input_bit1 != input_bit2){
+			input_bit1 = input_bit2;
+		}
+		else
+			return;
+		if(input_bit1){
+			if(sample_cnt>=6 ) // L->H 0
+			{		
+				if(wakeup_tone_cnt && sample_cnt<=9){
+						wakeup_tone_cnt++;
+				}
+				else if(sample_cnt<=14 ){ // err
+					wakeup_tone_cnt = 0;
+				//	putchar('E');
+				}
+				else if(sample_cnt<=18){
+					if(wakeup_tone_cnt>=36){// 0x4x
+					GPIO_WriteHigh(GPIOD,GPIO_PIN_3);
+						//putchar('w');
+						//print_hex(wakeup_tone_cnt);
+						wakeup_tone_cnt = 0;
+						dec_status = DEC_STATUS_START;
+						u8RcvBufOffset 	= 0;
+						u8RcvBitOffset	= 5;
+						u8RcvBuf[u8RcvBufOffset] = 0x40;
+						input_bit1 = input_bit2;
+					}
+					else if(0==wakeup_tone_cnt){
+						wakeup_tone_cnt++;
+					}
+					else
+					{
+					//	if(wakeup_tone_cnt>16)
+					//		putchar('E');
+						wakeup_tone_cnt = 0;
+					}
+				}
+			}
+			else{
+				wakeup_tone_cnt = 0;
+			}
+			sample_cnt=0;
+		}
+		else{
+		}
+	}
+	else if(DEC_STATUS_START==dec_status){
+		if(input_bit1 != input_bit2){
+			input_bit1 = input_bit2;
+		}
+		else
+			return;
+		if(!input_bit2){
+			if(sample_cnt<=6){
+				dec_status 			= DEC_STATUS_RCV;
+			//	putchar('s');
+			}
+			else{
+				dec_status 	= DEC_STATUS_IDLE;
+				printf("i:%d\n",sample_cnt);
+			}
+		//	sample_cnt		=	0;
+		//	input_bit1 = input_bit2;
+		}
+		else{
+			dec_status 	= DEC_STATUS_IDLE;
+		}
+		sample_cnt		=	0;
+	}
+	else if(DEC_STATUS_RCV==dec_status)
+	{
+		if(input_bit1 != input_bit2){
+			if(sample_cnt>=2&&sample_cnt<=6){
+				u8RcvBitOffset--;
+				if(input_bit1){ // rasing edge, 0
+					u8RcvBuf[u8RcvBufOffset] |= 1<<u8RcvBitOffset;
+				}
+				sample_cnt=14;
+				
+			}
+			input_bit1 = input_bit2;
+		}
+		if(sample_cnt>=18){
+			sample_cnt=0;
+			
+		}
+			
+		#if 1
+				
+		if(0==u8RcvBitOffset)
+		{
+			u8RcvBitOffset = 8;
+			//print_hex(u8RcvBuf[u8RcvBufOffset]);
+			u8RcvBufOffset++;
+			u8RcvBuf[u8RcvBufOffset] = 0;
+			if(10==u8RcvBufOffset){
+				//putchar('\n');
+				checksum = 0;
+				for(i=0;i<9;i++)
+				{
+					checksum += u8RcvBuf[i];
+				}		
+				if(checksum == u8RcvBuf[9])
+				{
+					is_rcv_new_data = 1;
+				}
+				else
+				{
+					//print_hex();
+					printf("checksum err\n");
+				}				
+			//	u8RcvBufOffset = 0;
+				dec_status = DEC_STATUS_IDLE;
+				sample_cnt = 0;
+				GPIO_WriteLow(GPIOD,GPIO_PIN_3);
+			}
+		}
+		
+		#endif
+	}
+
+}
+
+
+void SPI_SLAVE_Init(void)
+{
+	//	CLK_PeripheralClockConfig(CLK_PERIPHERAL_SPI, ENABLE);
+	SPI_DeInit();
+  /* Initialize SPI in Slave mode (for IAP-SPI programming) */
+  SPI_Init(SPI_FIRSTBIT_MSB, SPI_BAUDRATEPRESCALER_2, SPI_MODE_SLAVE, SPI_CLOCKPOLARITY_LOW, SPI_CLOCKPHASE_1EDGE, SPI_DATADIRECTION_2LINES_FULLDUPLEX, SPI_NSS_SOFT, 0x07);
+  SPI_Cmd(ENABLE);
+	//SPI->CR2 = 0;
+	//SPI->DR = 0x11;
+}
+#endif
+//char getchar (void)
+//{
+//	char c;
+//	while (UART1_GetFlagStatus(UART1_FLAG_RXNE) == RESET);
+//	c = UART1_ReceiveData8();
+ // return (c);
+//}

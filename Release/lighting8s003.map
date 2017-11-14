@@ -1,0 +1,890 @@
+
+Map of Release\lighting8s003.sm8 from link file Release\lighting8s003.lkf - Mon Nov 13 20:27:11 2017
+
+
+                               --------
+                               Segments
+                               --------
+
+start 00008080 end 0000812d length   173 segment .const
+start 0000814b end 000094f3 length  5032 segment .text
+start 00004000 end 00004000 length     0 segment .eeprom
+start 00000000 end 00000016 length    22 segment .bsct, initialized
+start 00008135 end 0000814b length    22 segment .bsct, from
+start 00000016 end 00000039 length    35 segment .ubsct
+start 00000039 end 00000039 length     0 segment .bit
+start 00000039 end 00000039 length     0 segment .share
+start 00000100 end 00000100 length     0 segment .data
+start 00000100 end 00000100 length     0 segment .bss
+start 00008000 end 00008080 length   128 segment .const
+start 0000812d end 00008135 length     8 segment .init
+
+
+                               -------
+                               Modules
+                               -------
+
+C:\Program Files (x86)\CXSTM8\Lib\crtsi0.sm8:
+start 0000814b end 00008196 length    75 section .text
+start 00000100 end 00000100 length     0 section .bss
+start 00000016 end 00000016 length     0 section .ubsct
+
+Release\uart.o:
+start 00008196 end 00008207 length   113 section .text
+start 00008080 end 00008090 length    16 section .const
+
+Release\stm8s_it.o:
+start 00008207 end 0000829e length   151 section .text
+start 00000000 end 0000000e length    14 section .bsct
+
+Release\main.o:
+start 0000829e end 00008465 length   455 section .text
+start 0000000e end 00000016 length     8 section .bsct
+start 00000016 end 0000002f length    25 section .ubsct
+start 00008090 end 000080bf length    47 section .const
+
+Release\stm8s_iwdg.o:
+start 00008465 end 0000847b length    22 section .text
+
+Release\stm8s_tim4.o:
+start 0000847b end 0000854b length   208 section .text
+
+Release\stm8s_gpio.o:
+start 0000854b end 000085e8 length   157 section .text
+
+Release\stm8s_clk.o:
+start 000085e8 end 000088e4 length   764 section .text
+start 000080bf end 000080cb length    12 section .const
+
+Release\stm8s_uart1.o:
+start 000088e4 end 00008c3e length   858 section .text
+start 000080cb end 000080cf length     4 section .const
+
+(C:\Program Files (x86)\CXSTM8\Lib\libis0.sm8)printf.o:
+start 00008c3e end 00008c4e length    16 section .text
+
+(C:\Program Files (x86)\CXSTM8\Lib\libis0.sm8)cprint.o:
+start 00008c4e end 0000917b length  1325 section .text
+start 000080cf end 00008108 length    57 section .const
+
+(C:\Program Files (x86)\CXSTM8\Lib\libis0.sm8)itob.o:
+start 0000917b end 00009292 length   279 section .text
+start 00008108 end 0000812d length    37 section .const
+
+(C:\Program Files (x86)\CXSTM8\Lib\libis0.sm8)idiv0.o:
+start 00009292 end 0000929d length    11 section .text
+
+(C:\Program Files (x86)\CXSTM8\Lib\libis0.sm8)ildiv0.o:
+start 0000929d end 000092b8 length    27 section .text
+
+(C:\Program Files (x86)\CXSTM8\Lib\libis0.sm8)strlen0.o:
+start 000092b8 end 000092c4 length    12 section .text
+
+(C:\Program Files (x86)\CXSTM8\Lib\libis0.sm8)toup0.o:
+start 000092c4 end 000092cf length    11 section .text
+
+(C:\Program Files (x86)\CXSTM8\Lib\libm0.sm8)ldiv.o:
+start 000092cf end 000093ba length   235 section .text
+
+(C:\Program Files (x86)\CXSTM8\Lib\libm0.sm8)imul.o:
+start 000093ba end 000093db length    33 section .text
+
+(C:\Program Files (x86)\CXSTM8\Lib\libm0.sm8)lcmp.o:
+start 000093db end 000093fb length    32 section .text
+
+(C:\Program Files (x86)\CXSTM8\Lib\libm0.sm8)lgadc.o:
+start 000093fb end 0000940b length    16 section .text
+
+(C:\Program Files (x86)\CXSTM8\Lib\libm0.sm8)lgneg.o:
+start 0000940b end 0000941e length    19 section .text
+
+(C:\Program Files (x86)\CXSTM8\Lib\libm0.sm8)llsh.o:
+start 0000941e end 0000942d length    15 section .text
+
+(C:\Program Files (x86)\CXSTM8\Lib\libm0.sm8)lneg.o:
+start 0000942d end 00009442 length    21 section .text
+
+(C:\Program Files (x86)\CXSTM8\Lib\libm0.sm8)lreg.o:
+start 0000002f end 00000033 length     4 section .ubsct
+
+(C:\Program Files (x86)\CXSTM8\Lib\libm0.sm8)lsub.o:
+start 00009442 end 0000945a length    24 section .text
+
+(C:\Program Files (x86)\CXSTM8\Lib\libm0.sm8)ltor.o:
+start 0000945a end 0000946c length    18 section .text
+
+(C:\Program Files (x86)\CXSTM8\Lib\libm0.sm8)ludiv.o:
+start 0000946c end 00009480 length    20 section .text
+
+(C:\Program Files (x86)\CXSTM8\Lib\libm0.sm8)lursh.o:
+start 00009480 end 0000948f length    15 section .text
+
+(C:\Program Files (x86)\CXSTM8\Lib\libm0.sm8)lzmp.o:
+start 0000948f end 000094a1 length    18 section .text
+
+(C:\Program Files (x86)\CXSTM8\Lib\libm0.sm8)rtol.o:
+start 000094a1 end 000094b3 length    18 section .text
+
+(C:\Program Files (x86)\CXSTM8\Lib\libm0.sm8)smul.o:
+start 000094b3 end 000094f2 length    63 section .text
+
+(C:\Program Files (x86)\CXSTM8\Lib\libm0.sm8)xreg.o:
+start 00000033 end 00000036 length     3 section .ubsct
+
+(C:\Program Files (x86)\CXSTM8\Lib\libm0.sm8)yreg.o:
+start 00000036 end 00000039 length     3 section .ubsct
+
+Release\stm8_interrupt_vector.o:
+start 000094f2 end 000094f3 length     1 section .text
+start 00008000 end 00008080 length   128 section .const
+
+
+                             -----------
+                             Stack usage
+                             -----------
+
+Release\main.o:
+_init_uart                             54   (6)
+_main                              >   90   (2)
+_putchar                                8   (3)
+_wtd_task                              88   (2)
+
+Release\stm8_interrupt_vector.o:
+f_NonHandledInterrupt              >    5   (5)
+
+Release\stm8s_clk.o:
+_CLK_AdjustHSICalibrationValue     >    3   (3)
+_CLK_CCOCmd                        >    2   (2)
+_CLK_CCOConfig                     >    3   (3)
+_CLK_ClearITPendingBit             >    2   (2)
+_CLK_ClockSecuritySystemEnable     >    2   (2)
+_CLK_ClockSwitchCmd                >    2   (2)
+_CLK_ClockSwitchConfig             >   10   (10)
+_CLK_DeInit                        >    2   (2)
+_CLK_FastHaltWakeUpCmd             >    2   (2)
+_CLK_GetClockFreq                      25   (11)
+_CLK_GetFlagStatus                 >    7   (7)
+_CLK_GetITStatus                   >    4   (4)
+_CLK_GetSYSCLKSource               >    2   (2)
+_CLK_HSECmd                        >    2   (2)
+_CLK_HSICmd                        >    2   (2)
+_CLK_HSIPrescalerConfig            >    3   (3)
+_CLK_ITConfig                      >    4   (4)
+_CLK_LSICmd                        >    2   (2)
+_CLK_PeripheralClockConfig              4   (4)
+_CLK_SWIMConfig                    >    2   (2)
+_CLK_SYSCLKConfig                  >    3   (3)
+_CLK_SYSCLKEmergencyClear          >    2   (2)
+_CLK_SlowActiveHaltWakeUpCmd       >    2   (2)
+
+Release\stm8s_gpio.o:
+_GPIO_DeInit                       >    2   (2)
+_GPIO_ExternalPullUpConfig         >    6   (6)
+_GPIO_Init                              6   (6)
+_GPIO_ReadInputData                >    2   (2)
+_GPIO_ReadInputPin                 >    5   (5)
+_GPIO_ReadOutputData               >    2   (2)
+_GPIO_Write                        >    5   (5)
+_GPIO_WriteHigh                         5   (5)
+_GPIO_WriteLow                          5   (5)
+_GPIO_WriteReverse                      5   (5)
+
+Release\stm8s_it.o:
+f_ADC1_IRQHandler                  >    5   (5)
+f_AWU_IRQHandler                   >    5   (5)
+f_CLK_IRQHandler                   >    5   (5)
+f_EEPROM_EEC_IRQHandler            >    5   (5)
+f_EXTI_PORTA_IRQHandler            >    5   (5)
+f_EXTI_PORTB_IRQHandler            >    5   (5)
+f_EXTI_PORTC_IRQHandler            >    5   (5)
+f_EXTI_PORTD_IRQHandler            >    5   (5)
+f_EXTI_PORTE_IRQHandler            >    5   (5)
+f_I2C_IRQHandler                   >    5   (5)
+f_SPI_IRQHandler                   >    6   (6)
+f_TIM1_CAP_COM_IRQHandler          >    5   (5)
+f_TIM1_UPD_OVF_TRG_BRK_IRQHandler  >    5   (5)
+f_TIM2_CAP_COM_IRQHandler          >    5   (5)
+f_TIM2_UPD_OVF_BRK_IRQHandler      >    5   (5)
+f_TIM4_UPD_OVF_IRQHandler          >   16   (11)
+f_TLI_IRQHandler                   >    5   (5)
+f_TRAP_IRQHandler                  >    5   (5)
+f_UART1_RX_IRQHandler              >   16   (11)
+f_UART1_TX_IRQHandler              >    5   (5)
+
+Release\stm8s_iwdg.o:
+_IWDG_Enable                       >    2   (2)
+_IWDG_ReloadCounter                     2   (2)
+_IWDG_SetPrescaler                      2   (2)
+_IWDG_SetReload                         2   (2)
+_IWDG_WriteAccessCmd               >    2   (2)
+
+Release\stm8s_tim4.o:
+_TIM4_ARRPreloadConfig             >    2   (2)
+_TIM4_ClearFlag                         2   (2)
+_TIM4_ClearITPendingBit            >    2   (2)
+_TIM4_Cmd                               2   (2)
+_TIM4_DeInit                            2   (2)
+_TIM4_GenerateEvent                     2   (2)
+_TIM4_GetCounter                   >    2   (2)
+_TIM4_GetFlagStatus                >    3   (3)
+_TIM4_GetITStatus                  >    5   (5)
+_TIM4_GetPrescaler                 >    2   (2)
+_TIM4_ITConfig                          4   (4)
+_TIM4_PrescalerConfig              >    2   (2)
+_TIM4_SelectOnePulseMode           >    2   (2)
+_TIM4_SetAutoreload                >    2   (2)
+_TIM4_SetCounter                   >    2   (2)
+_TIM4_TimeBaseInit                      2   (2)
+_TIM4_UpdateDisableConfig          >    2   (2)
+_TIM4_UpdateRequestConfig          >    2   (2)
+
+Release\stm8s_uart1.o:
+_UART1_ClearFlag                        2   (2)
+_UART1_ClearITPendingBit           >    2   (2)
+_UART1_Cmd                              2   (2)
+_UART1_DeInit                           2   (2)
+_UART1_GetFlagStatus                    5   (5)
+_UART1_GetITStatus                 >    6   (6)
+_UART1_HalfDuplexCmd               >    2   (2)
+_UART1_ITConfig                         7   (7)
+_UART1_Init                            48   (23)
+_UART1_IrDACmd                     >    2   (2)
+_UART1_IrDAConfig                  >    2   (2)
+_UART1_LINBreakDetectionConfig     >    2   (2)
+_UART1_LINCmd                      >    2   (2)
+_UART1_ReceiveData8                     2   (2)
+_UART1_ReceiveData9                >    4   (4)
+_UART1_ReceiverWakeUpCmd           >    2   (2)
+_UART1_SendBreak                   >    2   (2)
+_UART1_SendData8                        2   (2)
+_UART1_SendData9                   >    4   (4)
+_UART1_SetAddress                  >    3   (3)
+_UART1_SetGuardTime                >    2   (2)
+_UART1_SetPrescaler                >    2   (2)
+_UART1_SmartCardCmd                >    2   (2)
+_UART1_SmartCardNACKCmd            >    2   (2)
+_UART1_WakeUpConfig                >    2   (2)
+
+Release\uart.o:
+_print_data                        >   22   (9)
+_print_hex                             13   (5)
+_putstr                                12   (4)
+
+C:\Program Files (x86:
+L11__cvtup                              8   (6)
+L31__putbuf                            17   (9)
+L7__gnum                               19   (16)
+__print                                74   (51)
+__udiv                                  4   (4)
+__uldiv                                 6   (6)
+__itob                                 19   (15)
+__ltob                                 23   (17)
+_printf                                86   (12)
+_strlen                                 2   (2)
+_toupper                                2   (2)
+
+Stack size: 106
+
+
+                              ---------
+                              Call tree
+                              ---------
+   1 > _CLK_AdjustHSICalibrationValue: (3)
+
+   2 > _CLK_CCOCmd: (2)
+
+   3 > _CLK_CCOConfig: (3)
+
+   4 > _CLK_ClearITPendingBit: (2)
+
+   5 > _CLK_ClockSecuritySystemEnable: (2)
+
+   6 > _CLK_ClockSwitchCmd: (2)
+
+   7 > _CLK_ClockSwitchConfig: (10)
+
+   8 > _CLK_DeInit: (2)
+
+   9 > _CLK_FastHaltWakeUpCmd: (2)
+
+  10 > _CLK_GetFlagStatus: (7)
+
+  11 > _CLK_GetITStatus: (4)
+
+  12 > _CLK_GetSYSCLKSource: (2)
+
+  13 > _CLK_HSECmd: (2)
+
+  14 > _CLK_HSICmd: (2)
+
+  15 > _CLK_HSIPrescalerConfig: (3)
+
+  16 > _CLK_ITConfig: (4)
+
+  17 > _CLK_LSICmd: (2)
+
+  18 > _CLK_SWIMConfig: (2)
+
+  19 > _CLK_SYSCLKConfig: (3)
+
+  20 > _CLK_SYSCLKEmergencyClear: (2)
+
+  21 > _CLK_SlowActiveHaltWakeUpCmd: (2)
+
+  22 > _GPIO_DeInit: (2)
+
+  23 > _GPIO_ExternalPullUpConfig: (6)
+
+  24 > _GPIO_ReadInputData: (2)
+
+  25 > _GPIO_ReadInputPin: (5)
+
+  26 > _GPIO_ReadOutputData: (2)
+
+  27 > _GPIO_Write: (5)
+
+  28 > _IWDG_Enable: (2)
+
+  29 > _IWDG_WriteAccessCmd: (2)
+
+  30 > _TIM4_ARRPreloadConfig: (2)
+
+  31 > _TIM4_ClearITPendingBit: (2)
+
+  32 > _TIM4_GetCounter: (2)
+
+  33 > _TIM4_GetFlagStatus: (3)
+
+  34 > _TIM4_GetITStatus: (5)
+
+  35 > _TIM4_GetPrescaler: (2)
+
+  36 > _TIM4_PrescalerConfig: (2)
+
+  37 > _TIM4_SelectOnePulseMode: (2)
+
+  38 > _TIM4_SetAutoreload: (2)
+
+  39 > _TIM4_SetCounter: (2)
+
+  40 > _TIM4_UpdateDisableConfig: (2)
+
+  41 > _TIM4_UpdateRequestConfig: (2)
+
+  42 > _UART1_ClearITPendingBit: (2)
+
+  43 > _UART1_GetITStatus: (6)
+
+  44 > _UART1_HalfDuplexCmd: (2)
+
+  45 > _UART1_IrDACmd: (2)
+
+  46 > _UART1_IrDAConfig: (2)
+
+  47 > _UART1_LINBreakDetectionConfig: (2)
+
+  48 > _UART1_LINCmd: (2)
+
+  49 > _UART1_ReceiveData9: (4)
+
+  50 > _UART1_ReceiverWakeUpCmd: (2)
+
+  51 > _UART1_SendBreak: (2)
+
+  52 > _UART1_SendData9: (4)
+
+  53 > _UART1_SetAddress: (3)
+
+  54 > _UART1_SetGuardTime: (2)
+
+  55 > _UART1_SetPrescaler: (2)
+
+  56 > _UART1_SmartCardCmd: (2)
+
+  57 > _UART1_SmartCardNACKCmd: (2)
+
+  58 > _UART1_WakeUpConfig: (2)
+
+  59 > __stext: (0)
+
+  60 > _main: (2)
+  61      + _CLK_PeripheralClockConfig: (4)
+  62      + _GPIO_Init: (6)
+  63      + _GPIO_WriteLow: (5)
+  64      + _IWDG_ReloadCounter: (2)
+  65      + _IWDG_SetPrescaler: (2)
+  66      + _IWDG_SetReload: (2)
+  67      + _TIM4_Cmd: (2)
+  68      + _TIM4_DeInit: (2)
+  69      + _TIM4_GenerateEvent: (2)
+  70      + _TIM4_ITConfig: (4)
+  71      + _TIM4_TimeBaseInit: (2)
+  72      + _init_uart: (6)
+  73      |    + _CLK_PeripheralClockConfig --> 61
+  74      |    + _GPIO_Init --> 62
+  75      |    + _UART1_Cmd: (2)
+  76      |    + _UART1_DeInit: (2)
+  77      |    + _UART1_ITConfig: (7)
+  78      |    + _UART1_Init: (23)
+  79      |    |    + _CLK_GetClockFreq: (11)
+          |    | 
+          | 
+  80      + _putstr: (4)
+  81      |    + _putchar: (3)
+  82      |    |    + _UART1_ClearFlag: (2)
+  83      |    |    + _UART1_GetFlagStatus: (5)
+  84      |    |    + _UART1_SendData8: (2)
+          |    | 
+          | 
+  85      + _wtd_task: (2)
+  86      |    + _GPIO_WriteHigh: (5)
+  87      |    + _GPIO_WriteLow --> 63
+  88      |    + _printf: (12)
+  89      |    |    + __print: (51)
+  90      |    |    |    + L11__cvtup: (6)
+  91      |    |    |    |    + _toupper: (2)
+          |    |    |    | 
+  92      |    |    |    + L31__putbuf: (9)
+  93      |    |    |    |    + _putchar --> 81
+          |    |    |    | 
+  94      |    |    |    + L7__gnum: (16)
+  95      |    |    |    + __itob: (15)
+  96      |    |    |    |    + __udiv: (4)
+          |    |    |    | 
+  97      |    |    |    + __ltob: (17)
+  98      |    |    |    |    + __uldiv: (6)
+          |    |    |    | 
+  99      |    |    |    + _strlen: (2)
+          |    |    | 
+          |    | 
+          | 
+       
+ 100 > _print_data: (9)
+ 101      + _print_hex: (5)
+ 102      |    + _putchar --> 81
+          | 
+ 103      + _putchar --> 81
+       
+ 104 > f_ADC1_IRQHandler: (5)
+
+ 105 > f_AWU_IRQHandler: (5)
+
+ 106 > f_CLK_IRQHandler: (5)
+
+ 107 > f_EEPROM_EEC_IRQHandler: (5)
+
+ 108 > f_EXTI_PORTA_IRQHandler: (5)
+
+ 109 > f_EXTI_PORTB_IRQHandler: (5)
+
+ 110 > f_EXTI_PORTC_IRQHandler: (5)
+
+ 111 > f_EXTI_PORTD_IRQHandler: (5)
+
+ 112 > f_EXTI_PORTE_IRQHandler: (5)
+
+ 113 > f_I2C_IRQHandler: (5)
+
+ 114 > f_NonHandledInterrupt: (5)
+
+ 115 > f_SPI_IRQHandler: (6)
+
+ 116 > f_TIM1_CAP_COM_IRQHandler: (5)
+
+ 117 > f_TIM1_UPD_OVF_TRG_BRK_IRQHandler: (5)
+
+ 118 > f_TIM2_CAP_COM_IRQHandler: (5)
+
+ 119 > f_TIM2_UPD_OVF_BRK_IRQHandler: (5)
+
+ 120 > f_TIM4_UPD_OVF_IRQHandler: (11)
+ 121      + _GPIO_WriteReverse: (5)
+ 122      + _TIM4_ClearFlag: (2)
+       
+ 123 > f_TLI_IRQHandler: (5)
+
+ 124 > f_TRAP_IRQHandler: (5)
+
+ 125 > f_UART1_RX_IRQHandler: (11)
+ 126      + _UART1_GetFlagStatus --> 83
+ 127      + _UART1_ReceiveData8: (2)
+       
+ 128 > f_UART1_TX_IRQHandler: (5)
+
+ 129   L11__cvtup --> 90
+
+ 130   L31__putbuf --> 92
+
+ 131   L7__gnum --> 94
+
+ 132   _CLK_GetClockFreq --> 79
+
+ 133   _CLK_PeripheralClockConfig --> 61
+
+ 134   _GPIO_Init --> 62
+
+ 135   _GPIO_WriteHigh --> 86
+
+ 136   _GPIO_WriteLow --> 63
+
+ 137   _GPIO_WriteReverse --> 121
+
+ 138   _IWDG_ReloadCounter --> 64
+
+ 139   _IWDG_SetPrescaler --> 65
+
+ 140   _IWDG_SetReload --> 66
+
+ 141   _TIM4_ClearFlag --> 122
+
+ 142   _TIM4_Cmd --> 67
+
+ 143   _TIM4_DeInit --> 68
+
+ 144   _TIM4_GenerateEvent --> 69
+
+ 145   _TIM4_ITConfig --> 70
+
+ 146   _TIM4_TimeBaseInit --> 71
+
+ 147   _UART1_ClearFlag --> 82
+
+ 148   _UART1_Cmd --> 75
+
+ 149   _UART1_DeInit --> 76
+
+ 150   _UART1_GetFlagStatus --> 83
+
+ 151   _UART1_ITConfig --> 77
+
+ 152   _UART1_Init --> 78
+
+ 153   _UART1_ReceiveData8 --> 127
+
+ 154   _UART1_SendData8 --> 84
+
+ 155   __itob --> 95
+
+ 156   __ltob --> 97
+
+ 157   __print --> 89
+
+ 158   __udiv --> 96
+
+ 159   __uldiv --> 98
+
+ 160   _init_uart --> 72
+
+ 161   _print_hex --> 101
+
+ 162   _printf --> 88
+
+ 163   _putchar --> 81
+
+ 164   _putstr --> 80
+
+ 165   _strlen --> 99
+
+ 166   _toupper --> 91
+
+ 167   _wtd_task --> 85
+
+
+
+                               -------
+                               Symbols
+                               -------
+
+_CLKPrescTable                      000080c3   defined in Release\stm8s_clk.o section .const
+                                               *** not used ***
+_CLK_AdjustHSICalibrationValue      0000885e   defined in Release\stm8s_clk.o section .text
+_CLK_CCOCmd                         00008652   defined in Release\stm8s_clk.o section .text
+_CLK_CCOConfig                      00008772   defined in Release\stm8s_clk.o section .text
+_CLK_ClearITPendingBit              000088d6   defined in Release\stm8s_clk.o section .text
+_CLK_ClockSecuritySystemEnable      000087ed   defined in Release\stm8s_clk.o section .text
+_CLK_ClockSwitchCmd                 0000865f   defined in Release\stm8s_clk.o section .text
+_CLK_ClockSwitchConfig              000086d3   defined in Release\stm8s_clk.o section .text
+_CLK_DeInit                         000085e8   defined in Release\stm8s_clk.o section .text
+_CLK_FastHaltWakeUpCmd              0000861e   defined in Release\stm8s_clk.o section .text
+_CLK_GetClockFreq                   000087f6   defined in Release\stm8s_clk.o section .text
+                                               used in Release\stm8s_uart1.o
+_CLK_GetFlagStatus                  00008870   defined in Release\stm8s_clk.o section .text
+_CLK_GetITStatus                    000088b5   defined in Release\stm8s_clk.o section .text
+_CLK_GetSYSCLKSource                000087f2   defined in Release\stm8s_clk.o section .text
+_CLK_HSECmd                         0000862b   defined in Release\stm8s_clk.o section .text
+_CLK_HSICmd                         00008638   defined in Release\stm8s_clk.o section .text
+_CLK_HSIPrescalerConfig             0000875f   defined in Release\stm8s_clk.o section .text
+_CLK_ITConfig                       00008789   defined in Release\stm8s_clk.o section .text
+_CLK_LSICmd                         00008645   defined in Release\stm8s_clk.o section .text
+_CLK_PeripheralClockConfig          00008679   defined in Release\stm8s_clk.o section .text
+                                               used in Release\main.o
+_CLK_SWIMConfig                     000087e0   defined in Release\stm8s_clk.o section .text
+_CLK_SYSCLKConfig                   000087b9   defined in Release\stm8s_clk.o section .text
+_CLK_SYSCLKEmergencyClear           0000886b   defined in Release\stm8s_clk.o section .text
+_CLK_SlowActiveHaltWakeUpCmd        0000866c   defined in Release\stm8s_clk.o section .text
+_GPIO_DeInit                        0000854b   defined in Release\stm8s_gpio.o section .text
+_GPIO_ExternalPullUpConfig          000085d2   defined in Release\stm8s_gpio.o section .text
+_GPIO_Init                          00008553   defined in Release\stm8s_gpio.o section .text
+                                               used in Release\main.o
+_GPIO_ReadInputData                 000085c8   defined in Release\stm8s_gpio.o section .text
+_GPIO_ReadInputPin                  000085cb   defined in Release\stm8s_gpio.o section .text
+_GPIO_ReadOutputData                000085c6   defined in Release\stm8s_gpio.o section .text
+_GPIO_Write                         000085a8   defined in Release\stm8s_gpio.o section .text
+_GPIO_WriteHigh                     000085b0   defined in Release\stm8s_gpio.o section .text
+                                               used in Release\main.o
+_GPIO_WriteLow                      000085b7   defined in Release\stm8s_gpio.o section .text
+                                               used in Release\main.o
+_GPIO_WriteReverse                  000085bf   defined in Release\stm8s_gpio.o section .text
+                                               used in Release\stm8s_it.o
+_HEX                                00008080   defined in Release\uart.o section .const
+_HSIDivFactor                       000080bf   defined in Release\stm8s_clk.o section .const
+_IWDG_Enable                        00008476   defined in Release\stm8s_iwdg.o section .text
+_IWDG_ReloadCounter                 00008471   defined in Release\stm8s_iwdg.o section .text
+                                               used in Release\main.o
+_IWDG_SetPrescaler                  00008469   defined in Release\stm8s_iwdg.o section .text
+                                               used in Release\main.o
+_IWDG_SetReload                     0000846d   defined in Release\stm8s_iwdg.o section .text
+                                               used in Release\main.o
+_IWDG_WriteAccessCmd                00008465   defined in Release\stm8s_iwdg.o section .text
+_TIM4_ARRPreloadConfig              000084f0   defined in Release\stm8s_tim4.o section .text
+_TIM4_ClearFlag                     0000851e   defined in Release\stm8s_tim4.o section .text
+                                               used in Release\stm8s_it.o
+_TIM4_ClearITPendingBit             00008546   defined in Release\stm8s_tim4.o section .text
+_TIM4_Cmd                           0000849d   defined in Release\stm8s_tim4.o section .text
+                                               used in Release\main.o
+_TIM4_DeInit                        0000847b   defined in Release\stm8s_tim4.o section .text
+                                               used in Release\main.o
+_TIM4_GenerateEvent                 000084fd   defined in Release\stm8s_tim4.o section .text
+                                               used in Release\main.o
+_TIM4_GetCounter                    00008509   defined in Release\stm8s_tim4.o section .text
+_TIM4_GetFlagStatus                 00008511   defined in Release\stm8s_tim4.o section .text
+_TIM4_GetITStatus                   00008523   defined in Release\stm8s_tim4.o section .text
+_TIM4_GetPrescaler                  0000850d   defined in Release\stm8s_tim4.o section .text
+_TIM4_ITConfig                      000084aa   defined in Release\stm8s_tim4.o section .text
+                                               used in Release\main.o
+_TIM4_PrescalerConfig               000084e7   defined in Release\stm8s_tim4.o section .text
+_TIM4_SelectOnePulseMode            000084da   defined in Release\stm8s_tim4.o section .text
+_TIM4_SetAutoreload                 00008505   defined in Release\stm8s_tim4.o section .text
+_TIM4_SetCounter                    00008501   defined in Release\stm8s_tim4.o section .text
+_TIM4_TimeBaseInit                  00008494   defined in Release\stm8s_tim4.o section .text
+                                               used in Release\main.o
+_TIM4_UpdateDisableConfig           000084c0   defined in Release\stm8s_tim4.o section .text
+_TIM4_UpdateRequestConfig           000084cd   defined in Release\stm8s_tim4.o section .text
+_UART1_ClearFlag                    00008bb5   defined in Release\stm8s_uart1.o section .text
+                                               used in Release\main.o
+_UART1_ClearITPendingBit            00008c2f   defined in Release\stm8s_uart1.o section .text
+_UART1_Cmd                          00008a44   defined in Release\stm8s_uart1.o section .text
+                                               used in Release\main.o
+_UART1_DeInit                       000088e4   defined in Release\stm8s_uart1.o section .text
+                                               used in Release\main.o
+_UART1_GetFlagStatus                00008b85   defined in Release\stm8s_uart1.o section .text
+                                               used in Release\stm8s_it.o
+                                                       Release\main.o
+_UART1_GetITStatus                  00008bc4   defined in Release\stm8s_uart1.o section .text
+_UART1_HalfDuplexCmd                00008ab7   defined in Release\stm8s_uart1.o section .text
+_UART1_ITConfig                     00008a51   defined in Release\stm8s_uart1.o section .text
+                                               used in Release\main.o
+_UART1_Init                         0000890f   defined in Release\stm8s_uart1.o section .text
+                                               used in Release\main.o
+_UART1_IrDACmd                      00008ad1   defined in Release\stm8s_uart1.o section .text
+_UART1_IrDAConfig                   00008ac4   defined in Release\stm8s_uart1.o section .text
+_UART1_LINBreakDetectionConfig      00008ade   defined in Release\stm8s_uart1.o section .text
+_UART1_LINCmd                       00008aeb   defined in Release\stm8s_uart1.o section .text
+_UART1_ReceiveData8                 00008b2a   defined in Release\stm8s_uart1.o section .text
+                                               used in Release\stm8s_it.o
+_UART1_ReceiveData9                 00008b2e   defined in Release\stm8s_uart1.o section .text
+_UART1_ReceiverWakeUpCmd            00008b1d   defined in Release\stm8s_uart1.o section .text
+_UART1_SendBreak                    00008b65   defined in Release\stm8s_uart1.o section .text
+_UART1_SendData8                    00008b4a   defined in Release\stm8s_uart1.o section .text
+                                               used in Release\main.o
+_UART1_SendData9                    00008b4e   defined in Release\stm8s_uart1.o section .text
+_UART1_SetAddress                   00008b6a   defined in Release\stm8s_uart1.o section .text
+_UART1_SetGuardTime                 00008b7d   defined in Release\stm8s_uart1.o section .text
+_UART1_SetPrescaler                 00008b81   defined in Release\stm8s_uart1.o section .text
+_UART1_SmartCardCmd                 00008af8   defined in Release\stm8s_uart1.o section .text
+_UART1_SmartCardNACKCmd             00008b05   defined in Release\stm8s_uart1.o section .text
+_UART1_WakeUpConfig                 00008b12   defined in Release\stm8s_uart1.o section .text
+__endmem                            000001ff   defined in command file
+                                               *** not used ***
+__endzp                             00000039   defined in command file section .ubsct
+                                               used in C:\Program Files (x86)\CXSTM8\Lib\crtsi0.sm8
+__idesc__                           0000812d   defined in linker section .init
+                                               used in C:\Program Files (x86)\CXSTM8\Lib\crtsi0.sm8
+__itob                              0000917b   defined in (C:\Program Files (x86)\CXSTM8\Lib\libis0.sm8)itob.o section .text
+                                               used in (C:\Program Files (x86)\CXSTM8\Lib\libis0.sm8)cprint.o
+__ltob                              000091f6   defined in (C:\Program Files (x86)\CXSTM8\Lib\libis0.sm8)itob.o section .text
+                                               used in (C:\Program Files (x86)\CXSTM8\Lib\libis0.sm8)cprint.o
+__memory                            00000100   defined in command file section .bss
+                                               used in C:\Program Files (x86)\CXSTM8\Lib\crtsi0.sm8
+__print                             00008d48   defined in (C:\Program Files (x86)\CXSTM8\Lib\libis0.sm8)cprint.o section .text
+                                               used in (C:\Program Files (x86)\CXSTM8\Lib\libis0.sm8)printf.o
+__stack                             000003ff   defined in command file
+                                               used in C:\Program Files (x86)\CXSTM8\Lib\crtsi0.sm8
+__startmem                          00000100   defined in command file section .bss
+                                               *** not used ***
+__stext                             0000814b   defined in C:\Program Files (x86)\CXSTM8\Lib\crtsi0.sm8 section .text
+                                               used in Release\stm8_interrupt_vector.o
+__udiv                              00009292   defined in (C:\Program Files (x86)\CXSTM8\Lib\libis0.sm8)idiv0.o section .text
+                                               used in (C:\Program Files (x86)\CXSTM8\Lib\libis0.sm8)itob.o
+__uldiv                             0000929d   defined in (C:\Program Files (x86)\CXSTM8\Lib\libis0.sm8)ildiv0.o section .text
+                                               used in (C:\Program Files (x86)\CXSTM8\Lib\libis0.sm8)itob.o
+__vectab                            00008000   defined in Release\stm8_interrupt_vector.o section .const
+                                               *** not used ***
+_exit                               00008194   defined in C:\Program Files (x86)\CXSTM8\Lib\crtsi0.sm8 section .text
+_g_u64CurrentTickS                  00000016   defined in Release\main.o section .ubsct
+_g_u8LastRecvTickMs                 0000001a   defined in Release\main.o section .ubsct
+                                               used in Release\stm8s_it.o
+_i                                  0000000e   defined in Release\main.o section .bsct, initialized
+_init_uart                          00008362   defined in Release\main.o section .text
+_main                               0000829e   defined in Release\main.o section .text
+                                               used in C:\Program Files (x86)\CXSTM8\Lib\crtsi0.sm8
+_print_data                         000081b8   defined in Release\uart.o section .text
+                                               used in Release\protocol.o
+_print_hex                          00008196   defined in Release\uart.o section .text
+                                               used in Release\protocol.o
+_printf                             00008c3e   defined in (C:\Program Files (x86)\CXSTM8\Lib\libis0.sm8)printf.o section .text
+                                               used in Release\main.o
+_putchar                            000083a7   defined in Release\main.o section .text
+                                               used in Release\uart.o
+                                                       (C:\Program Files (x86)\CXSTM8\Lib\libis0.sm8)cprint.o
+_putstr                             000081f5   defined in Release\uart.o section .text
+                                               used in Release\protocol.o
+                                                       Release\main.o
+_pwr_state                          00000014   defined in Release\main.o section .bsct, initialized
+_strlen                             000092b8   defined in (C:\Program Files (x86)\CXSTM8\Lib\libis0.sm8)strlen0.o section .text
+                                               used in (C:\Program Files (x86)\CXSTM8\Lib\libis0.sm8)cprint.o
+_toupper                            000092c4   defined in (C:\Program Files (x86)\CXSTM8\Lib\libis0.sm8)toup0.o section .text
+                                               used in (C:\Program Files (x86)\CXSTM8\Lib\libis0.sm8)cprint.o
+_u64TickMs                          00000000   defined in Release\stm8s_it.o section .bsct, initialized
+_u64TickS                           00000006   defined in Release\stm8s_it.o section .bsct, initialized
+                                               used in Release\main.o
+_u64TickTempMs                      00000004   defined in Release\stm8s_it.o section .bsct, initialized
+_u64TickTempUs                      0000000a   defined in Release\stm8s_it.o section .bsct, initialized
+                                               *** not used ***
+_u8RcvBuf                           0000001f   defined in Release\main.o section .ubsct
+                                               used in Release\stm8s_it.o
+_u8RcvBufOffset                     0000001e   defined in Release\main.o section .ubsct
+                                               used in Release\stm8s_it.o
+_wtd_input_val                      00000010   defined in Release\main.o section .bsct, initialized
+_wtd_last_input_val                 00000011   defined in Release\main.o section .bsct, initialized
+_wtd_pulse_cnt                      00000012   defined in Release\main.o section .bsct, initialized
+_wtd_task                           000083bf   defined in Release\main.o section .text
+c_divsl                             000092cf   defined in (C:\Program Files (x86)\CXSTM8\Lib\libm0.sm8)ldiv.o section .text
+                                               *** not used ***
+c_divul                             000092e6   defined in (C:\Program Files (x86)\CXSTM8\Lib\libm0.sm8)ldiv.o section .text
+                                               used in (C:\Program Files (x86)\CXSTM8\Lib\libis0.sm8)ildiv0.o
+                                                       (C:\Program Files (x86)\CXSTM8\Lib\libm0.sm8)ludiv.o
+c_imul                              000093ba   defined in (C:\Program Files (x86)\CXSTM8\Lib\libm0.sm8)imul.o section .text
+                                               used in Release\stm8s_beep.o
+                                                       (C:\Program Files (x86)\CXSTM8\Lib\libis0.sm8)cprint.o
+c_lcmp                              000093db   defined in (C:\Program Files (x86)\CXSTM8\Lib\libm0.sm8)lcmp.o section .text
+                                               used in Release\main.o
+c_lgadc                             000093fb   defined in (C:\Program Files (x86)\CXSTM8\Lib\libm0.sm8)lgadc.o section .text
+                                               used in Release\stm8s_it.o
+c_lgneg                             0000940b   defined in (C:\Program Files (x86)\CXSTM8\Lib\libm0.sm8)lgneg.o section .text
+                                               used in (C:\Program Files (x86)\CXSTM8\Lib\libm0.sm8)ldiv.o
+c_llsh                              0000941e   defined in (C:\Program Files (x86)\CXSTM8\Lib\libm0.sm8)llsh.o section .text
+                                               used in Release\stm8s_uart1.o
+c_lneg                              0000942d   defined in (C:\Program Files (x86)\CXSTM8\Lib\libm0.sm8)lneg.o section .text
+                                               used in (C:\Program Files (x86)\CXSTM8\Lib\libis0.sm8)itob.o
+                                                       (C:\Program Files (x86)\CXSTM8\Lib\libm0.sm8)ldiv.o
+c_lreg                              0000002f   defined in (C:\Program Files (x86)\CXSTM8\Lib\libm0.sm8)lreg.o section .ubsct
+                                               used in Release\stm8s_beep.o
+                                                       Release\stm8s_flash.o
+                                                       Release\stm8s_clk.o
+                                                       Release\stm8s_uart1.o
+                                                       (C:\Program Files (x86)\CXSTM8\Lib\libis0.sm8)cprint.o
+                                                       (C:\Program Files (x86)\CXSTM8\Lib\libm0.sm8)cmulx.o
+                                                       (C:\Program Files (x86)\CXSTM8\Lib\libm0.sm8)ldiv.o
+                                                       (C:\Program Files (x86)\CXSTM8\Lib\libm0.sm8)ladd.o
+                                                       (C:\Program Files (x86)\CXSTM8\Lib\libm0.sm8)lcmp.o
+                                                       (C:\Program Files (x86)\CXSTM8\Lib\libm0.sm8)lgadd.o
+                                                       (C:\Program Files (x86)\CXSTM8\Lib\libm0.sm8)llsh.o
+                                                       (C:\Program Files (x86)\CXSTM8\Lib\libm0.sm8)lneg.o
+                                                       (C:\Program Files (x86)\CXSTM8\Lib\libm0.sm8)lsub.o
+                                                       (C:\Program Files (x86)\CXSTM8\Lib\libm0.sm8)ltor.o
+                                                       (C:\Program Files (x86)\CXSTM8\Lib\libm0.sm8)lursh.o
+                                                       (C:\Program Files (x86)\CXSTM8\Lib\libm0.sm8)rtol.o
+                                                       (C:\Program Files (x86)\CXSTM8\Lib\libm0.sm8)smul.o
+                                                       (C:\Program Files (x86)\CXSTM8\Lib\libm0.sm8)umul.o
+c_lsub                              00009442   defined in (C:\Program Files (x86)\CXSTM8\Lib\libm0.sm8)lsub.o section .text
+                                               used in Release\stm8s_uart1.o
+c_ltor                              0000945a   defined in (C:\Program Files (x86)\CXSTM8\Lib\libm0.sm8)ltor.o section .text
+                                               used in Release\main.o
+                                                       Release\stm8s_beep.o
+                                                       Release\stm8s_flash.o
+                                                       Release\stm8s_clk.o
+                                                       Release\stm8s_uart1.o
+                                                       (C:\Program Files (x86)\CXSTM8\Lib\libis0.sm8)itob.o
+                                                       (C:\Program Files (x86)\CXSTM8\Lib\libis0.sm8)ildiv0.o
+c_ludv                              0000946c   defined in (C:\Program Files (x86)\CXSTM8\Lib\libm0.sm8)ludiv.o section .text
+                                               used in Release\stm8s_beep.o
+                                                       Release\stm8s_clk.o
+                                                       Release\stm8s_uart1.o
+c_lursh                             00009480   defined in (C:\Program Files (x86)\CXSTM8\Lib\libm0.sm8)lursh.o section .text
+                                               used in Release\stm8s_uart1.o
+c_lzmp                              0000948f   defined in (C:\Program Files (x86)\CXSTM8\Lib\libm0.sm8)lzmp.o section .text
+                                               used in Release\stm8s_flash.o
+                                                       (C:\Program Files (x86)\CXSTM8\Lib\libis0.sm8)itob.o
+c_rtol                              000094a1   defined in (C:\Program Files (x86)\CXSTM8\Lib\libm0.sm8)rtol.o section .text
+                                               used in Release\stm8s_flash.o
+                                                       Release\stm8s_clk.o
+                                                       Release\stm8s_uart1.o
+                                                       (C:\Program Files (x86)\CXSTM8\Lib\libis0.sm8)cprint.o
+                                                       (C:\Program Files (x86)\CXSTM8\Lib\libis0.sm8)itob.o
+                                                       (C:\Program Files (x86)\CXSTM8\Lib\libis0.sm8)ildiv0.o
+c_smul                              000094b3   defined in (C:\Program Files (x86)\CXSTM8\Lib\libm0.sm8)smul.o section .text
+                                               used in Release\stm8s_uart1.o
+c_x                                 00000033   defined in (C:\Program Files (x86)\CXSTM8\Lib\libm0.sm8)xreg.o section .ubsct
+                                               used in C:\Program Files (x86)\CXSTM8\Lib\crtsi0.sm8
+                                                       Release\stm8s_it.o
+                                                       Release\stm8s_beep.o
+                                                       (C:\Program Files (x86)\CXSTM8\Lib\libis0.sm8)strlen0.o
+                                                       (C:\Program Files (x86)\CXSTM8\Lib\libm0.sm8)ldiv.o
+                                                       (C:\Program Files (x86)\CXSTM8\Lib\libm0.sm8)imul.o
+                                                       (C:\Program Files (x86)\CXSTM8\Lib\libm0.sm8)umul.o
+c_y                                 00000036   defined in (C:\Program Files (x86)\CXSTM8\Lib\libm0.sm8)yreg.o section .ubsct
+                                               used in C:\Program Files (x86)\CXSTM8\Lib\crtsi0.sm8
+                                                       Release\stm8s_it.o
+                                                       (C:\Program Files (x86)\CXSTM8\Lib\libm0.sm8)umul.o
+f_ADC1_IRQHandler                   00008256   defined in Release\stm8s_it.o section .text
+                                               *** not used ***
+f_AWU_IRQHandler                    00008209   defined in Release\stm8s_it.o section .text
+                                               *** not used ***
+f_CLK_IRQHandler                    0000820a   defined in Release\stm8s_it.o section .text
+                                               *** not used ***
+f_EEPROM_EEC_IRQHandler             0000829d   defined in Release\stm8s_it.o section .text
+                                               *** not used ***
+f_EXTI_PORTA_IRQHandler             0000820b   defined in Release\stm8s_it.o section .text
+                                               *** not used ***
+f_EXTI_PORTB_IRQHandler             0000820c   defined in Release\stm8s_it.o section .text
+                                               *** not used ***
+f_EXTI_PORTC_IRQHandler             0000820d   defined in Release\stm8s_it.o section .text
+                                               *** not used ***
+f_EXTI_PORTD_IRQHandler             0000820e   defined in Release\stm8s_it.o section .text
+                                               *** not used ***
+f_EXTI_PORTE_IRQHandler             0000820f   defined in Release\stm8s_it.o section .text
+                                               *** not used ***
+f_I2C_IRQHandler                    00008255   defined in Release\stm8s_it.o section .text
+                                               *** not used ***
+f_NonHandledInterrupt               000094f2   defined in Release\stm8_interrupt_vector.o section .text
+f_SPI_IRQHandler                    00008210   defined in Release\stm8s_it.o section .text
+                                               *** not used ***
+f_TIM1_CAP_COM_IRQHandler           00008215   defined in Release\stm8s_it.o section .text
+                                               *** not used ***
+f_TIM1_UPD_OVF_TRG_BRK_IRQHandler   00008214   defined in Release\stm8s_it.o section .text
+                                               *** not used ***
+f_TIM2_CAP_COM_IRQHandler           00008217   defined in Release\stm8s_it.o section .text
+                                               *** not used ***
+f_TIM2_UPD_OVF_BRK_IRQHandler       00008216   defined in Release\stm8s_it.o section .text
+                                               *** not used ***
+f_TIM4_UPD_OVF_IRQHandler           00008257   defined in Release\stm8s_it.o section .text
+                                               used in Release\stm8_interrupt_vector.o
+f_TLI_IRQHandler                    00008208   defined in Release\stm8s_it.o section .text
+                                               *** not used ***
+f_TRAP_IRQHandler                   00008207   defined in Release\stm8s_it.o section .text
+                                               *** not used ***
+f_UART1_RX_IRQHandler               00008219   defined in Release\stm8s_it.o section .text
+                                               used in Release\stm8_interrupt_vector.o
+f_UART1_TX_IRQHandler               00008218   defined in Release\stm8s_it.o section .text
+                                               *** not used ***
